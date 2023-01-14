@@ -27,4 +27,14 @@ The performance of key-value stores depeends on:
 Here are points that could make this key-value store project stand out from the crowd:
 1. adapt to a specific data representation (graphs, geographic data, etc)
 2. adapt to a specific operation (performing very well for reads only, or writes only)
-3. adapt to s apecific issue
+3. adapt to s apecific issue （automatic parameter tuning, as many key-value stores have many options, and it's sometimes a mess to find the best ones）
+4. offer more data access options, for instance in levelDB, data can be accessed forward or backward, with iterators, ad it has sorting on the keys. Not all key-values stores can do that.
+
+The goal of this project is to develop a lightweight key-value store in understandable C++ code. 
+1. use hash table for the underlying data structure
+2. the data will be persistent on disk
+3. a network interface will also be implemented
+4. will not run for absolute speed, but for conciseness and clarity in both design and implementation
+5. minimize the memory footprint of the database file on disk
+
+
