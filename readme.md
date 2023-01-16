@@ -38,3 +38,24 @@ The goal of this project is to develop a lightweight key-value store in understa
 5. minimize the memory footprint of the database file on disk
 
 
+Analysis about Kyoto Cabinet and LevelDB
+
+key-value stores have very similar components:
+1. interface: the set of methods and classes exposed to the clients of a key-value store so they can interact it (API)   Get(), Put(), Delete()
+2. Parametrization: the way that options are being set and passed to components across the whole system.
+3. Data storage: the interface used to access the memory where the data, i.e. keys and values, are stored. If the data must be persisted on non-volatile storage such as hard drive or flash memory, then problems of synchronization and consurrency may arise.
+4. Data structure: the algorithms and methods being used to organize the data, and allow for efficient storage and retrieval. (a hash table or B+ tree, a Log-Structured Merge Tree (LevelDB) )
+5. Memory management: the algorithms and techniques being usd to manage the memory used by the system.
+6. Iteration: the way by which all the keys and values in a database can be enumerated and accesses sequentially. The solution are mostly iteration and cursors.
+7. String: The data structure used to represent and access strings of characters. For key-value stores, a great deal of time is being on passing and processing strings. std::string from the STL might not be the best solution.
+8. Lock Management: 
+9. Error Management
+10. Logging
+11. Transaction Management: Mechanism over a set of operations which ensures that all the operations are executed correctly. None of the operations is exectuted and database is left unchanged in case of an error.
+12. Compression: algorithms used to compress the data
+13. Comparators: provide ways to order two keys with regard to each other
+14. Checksum: used to test and ensure the integrity of the data.
+15. Snapshot: provides a read-only view of the entire database as it was when the snapshot was created.
+16. Partitioning: referred to as Sharding, this consists in splitting the data set into multiple data storages, possibly distributed across multiple nodes a network.
+17. Replication: In oder to ensure durability in case of system or hardware failure, some key-value stores allow for multiple copies of the data, - or of partitions of the data - to be maintined simultaneously, preferbly on multiple nodes.
+18. Testing Framework: used to test the system, including unit and integration testing.
